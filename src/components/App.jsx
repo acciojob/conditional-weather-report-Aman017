@@ -1,19 +1,16 @@
 
 import React from "react";
 import './../styles/App.css';
-import Weather from "./weather";
-import 
-
+import WeatchDisplay from "./WeatherDisplay"
 const App = () => {
+  const [data,setData] = React.useState(null)
+
+  React.useEffect(()=>{
+  setData({ temperature: 25, conditions: "Sunny" })
+},[])
   return (
     <div>
-        {/* Do not remove the main div */}
-        <Container maxWidth="sm" sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Weather Display App
-      </Typography>
-      <Weather weather={weather} />
-    </Container>
+    {data&&  <WeatchDisplay data={data}/>}
     </div>
   )
 }
